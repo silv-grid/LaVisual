@@ -33,32 +33,32 @@ import TypeWriterEffect from 'react-typewriter-effect'; // For typing text anima
 const portfolioItems = [
 // Wedding photos collection
   {
-    image: "/src/assets/portfolio/wedding/new/1.webp", // Path to image file
+    image: "/assets/portfolio/wedding/new/1.webp", // Path to image file
     title: "Dino and Jasmine's Wedding", // Title to display on card
     category: "Wedding", // Category for filtering
   },
   {
-    image: "/src/assets/portfolio/wedding/new/2.webp",
+    image: "/assets/portfolio/wedding/new/2.webp",
     title: "Dino and Jasmine's Wedding",
     category: "Wedding",
   },
   {
-    image: "/src/assets/portfolio/wedding/new/3.webp",
+    image: "/assets/portfolio/wedding/new/3.webp",
     title: "Dino and Jasmine's Wedding",
     category: "Wedding",
   },
   {
-    image: "/src/assets/portfolio/wedding/new/4.webp",
+    image: "/assets/portfolio/wedding/new/4.webp",
     title: "Dino and Jasmine's Wedding",
     category: "Wedding",
   },
   {
-    image: "/src/assets/portfolio/wedding/new/5.webp",
+    image: "/assets/portfolio/wedding/new/5.webp",
     title: "Dino and Jasmine's Wedding",
     category: "Wedding",
   },
   {
-    image: "/src/assets/portfolio/wedding/new/6.webp",
+    image: "/assets/portfolio/wedding/new/6.webp",
     title: "Dino and Jasmine's Wedding",
     category: "Wedding",
   },
@@ -66,372 +66,372 @@ const portfolioItems = [
 
 // Portrait photos collection
     {
-    image: "/src/assets/portfolio/portrait/new/1.webp",
+    image: "/assets/portfolio/portrait/new/1.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/2.webp",
+    image: "/assets/portfolio/portrait/new/2.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/3.webp",
+    image: "/assets/portfolio/portrait/new/3.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/4.webp",
+    image: "/assets/portfolio/portrait/new/4.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/5.webp",
+    image: "/assets/portfolio/portrait/new/5.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/6.webp",
+    image: "/assets/portfolio/portrait/new/6.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/7.webp",
+    image: "/assets/portfolio/portrait/new/7.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/8.webp",
+    image: "/assets/portfolio/portrait/new/8.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/9.webp",
+    image: "/assets/portfolio/portrait/new/9.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/10.webp",
+    image: "/assets/portfolio/portrait/new/10.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/11.webp",
+    image: "/assets/portfolio/portrait/new/11.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
     {
-    image: "/src/assets/portfolio/portrait/new/12.webp",
+    image: "/assets/portfolio/portrait/new/12.webp",
     title: "Ann's Portrait",
     category: "Portrait",
   },
 
 // Pre-Birthday/Debut photos collection
 {
-    image: "/src/assets/portfolio/pre-birthday/new/1.webp",
+    image: "/assets/portfolio/pre-birthday/new/1.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/2.webp",
+    image: "/assets/portfolio/pre-birthday/new/2.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/3.webp",
+    image: "/assets/portfolio/pre-birthday/new/3.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/4.webp",
+    image: "/assets/portfolio/pre-birthday/new/4.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/5.webp",
+    image: "/assets/portfolio/pre-birthday/new/5.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/6.webp",
+    image: "/assets/portfolio/pre-birthday/new/6.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/7.webp",
+    image: "/assets/portfolio/pre-birthday/new/7.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/8.webp",
+    image: "/assets/portfolio/pre-birthday/new/8.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/9.webp",
+    image: "/assets/portfolio/pre-birthday/new/9.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/10.webp",
+    image: "/assets/portfolio/pre-birthday/new/10.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/11.webp",
+    image: "/assets/portfolio/pre-birthday/new/11.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 {
-    image: "/src/assets/portfolio/pre-birthday/new/12.webp",
+    image: "/assets/portfolio/pre-birthday/new/12.webp",
     title: "Kimberyly's Pre-Debut",
     category: "Pre-Birthday",
   },
 
 // Pre-Nuptial photos collection
   {
-    image: "/src/assets/portfolio/pre-nup/new/1.webp",
+    image: "/assets/portfolio/pre-nup/new/1.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/2.webp",
+    image: "/assets/portfolio/pre-nup/new/2.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/3.webp",
+    image: "/assets/portfolio/pre-nup/new/3.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/4.webp",
+    image: "/assets/portfolio/pre-nup/new/4.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/5.webp",
+    image: "/assets/portfolio/pre-nup/new/5.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/6.webp",
+    image: "/assets/portfolio/pre-nup/new/6.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/7.webp",
+    image: "/assets/portfolio/pre-nup/new/7.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/8.webp",
+    image: "/assets/portfolio/pre-nup/new/8.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/9.webp",
+    image: "/assets/portfolio/pre-nup/new/9.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/10.webp",
+    image: "/assets/portfolio/pre-nup/new/10.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/11.webp",
+    image: "/assets/portfolio/pre-nup/new/11.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
   {
-    image: "/src/assets/portfolio/pre-nup/new/12.webp",
+    image: "/assets/portfolio/pre-nup/new/12.webp",
     title: "Keight & Shaira's Pre-Nup",
     category: "Pre-Nup",
   },
 
 // Baptismal photos collection
   {
-    image: "/src/assets/portfolio/baptismal/new/1.webp",
+    image: "/assets/portfolio/baptismal/new/1.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/2.webp",
+    image: "/assets/portfolio/baptismal/new/2.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/3.webp",
+    image: "/assets/portfolio/baptismal/new/3.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/4.webp",
+    image: "/assets/portfolio/baptismal/new/4.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/5.webp",
+    image: "/assets/portfolio/baptismal/new/5.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/6.webp",
+    image: "/assets/portfolio/baptismal/new/6.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/7.webp",
+    image: "/assets/portfolio/baptismal/new/7.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/8.webp",
+    image: "/assets/portfolio/baptismal/new/8.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/9.webp",
+    image: "/assets/portfolio/baptismal/new/9.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/10.webp",
+    image: "/assets/portfolio/baptismal/new/10.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/11.webp",
+    image: "/assets/portfolio/baptismal/new/11.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
   {
-    image: "/src/assets/portfolio/baptismal/new/12.webp",
+    image: "/assets/portfolio/baptismal/new/12.webp",
     title: "Astrid's Baptism",
     category: "Baptismal",
   },
 
 // Occasion photos collection (birthday events)
   {
-    image: "/src/assets/portfolio/occasion/new/1.webp",
+    image: "/assets/portfolio/occasion/new/1.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/2.webp",
+    image: "/assets/portfolio/occasion/new/2.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/3.webp",
+    image: "/assets/portfolio/occasion/new/3.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/4.webp",
+    image: "/assets/portfolio/occasion/new/4.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/5.webp",
+    image: "/assets/portfolio/occasion/new/5.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/6.webp",
+    image: "/assets/portfolio/occasion/new/6.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/7.webp",
+    image: "/assets/portfolio/occasion/new/7.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/8.webp",
+    image: "/assets/portfolio/occasion/new/8.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/9.webp",
+    image: "/assets/portfolio/occasion/new/9.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/10.webp",
+    image: "/assets/portfolio/occasion/new/10.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/11.webp",
+    image: "/assets/portfolio/occasion/new/11.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
   {
-    image: "/src/assets/portfolio/occasion/new/12.webp",
+    image: "/assets/portfolio/occasion/new/12.webp",
     title: "Zeny's 60th Birthday",
     category: "Occasion",
   },
 
   // Sports photos collection
   {
-    image: "/src/assets/portfolio/sports/new/1.webp",
+    image: "/assets/portfolio/sports/new/1.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/2.webp",
+    image: "/assets/portfolio/sports/new/2.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/3.webp",
+    image: "/assets/portfolio/sports/new/3.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/4.webp",
+    image: "/assets/portfolio/sports/new/4.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/5.webp",
+    image: "/assets/portfolio/sports/new/5.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/6.webp",
+    image: "/assets/portfolio/sports/new/6.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/7.webp",
+    image: "/assets/portfolio/sports/new/7.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/8.webp",
+    image: "/assets/portfolio/sports/new/8.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/9.webp",
+    image: "/assets/portfolio/sports/new/9.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/10.webp",
+    image: "/assets/portfolio/sports/new/10.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/11.webp",
+    image: "/assets/portfolio/sports/new/11.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
   {
-    image: "/src/assets/portfolio/sports/new/12.webp",
+    image: "/assets/portfolio/sports/new/12.webp",
     title: "San Jose Basketball League",
     category: "Sports",
   },
@@ -439,22 +439,22 @@ const portfolioItems = [
   // Video items collection - note these have a different structure including videoUrl and thumbnail
   {
     type: "video", // Indicates this is a video, not an image
-    videoUrl: "/src/assets/portfolio/video/kj.mp4", // Path to video file
-    thumbnail: "/src/assets/portfolio/video/1.webp", // Thumbnail image to display before playing
+    videoUrl: "/assets/portfolio/video/kj.mp4", // Path to video file
+    thumbnail: "/assets/portfolio/video/1.webp", // Thumbnail image to display before playing
     title: "Khay & Jha's SDE Video", // Video title
     category: "Video" // Category for filtering
   },
   {
     type: "video",
-    videoUrl: "/src/assets/portfolio/video/j-bday.mp4",
-    thumbnail: "/src/assets/portfolio/video/2.webp",
+    videoUrl: "/assets/portfolio/video/j-bday.mp4",
+    thumbnail: "/assets/portfolio/video/2.webp",
     title: "Joesan's Birthday Highlights",
     category: "Video"
   },
   {
     type: "video",
-    videoUrl: "/src/assets/portfolio/video/ks.mp4",
-    thumbnail: "/src/assets/portfolio/video/3.webp",
+    videoUrl: "/assets/portfolio/video/ks.mp4",
+    thumbnail: "/assets/portfolio/video/3.webp",
     title: "Keight and Shaira's Photo Highlights",
     category: "Video"
   },

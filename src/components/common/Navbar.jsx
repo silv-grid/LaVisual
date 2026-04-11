@@ -130,7 +130,7 @@ function Navbar() {
             {/* Navigation items mapped from an array */}
             {[
               { path: "/", label: "Home" },
-              { path: "/booking", label: "Booking" },
+              // { path: "/booking", label: "Booking" }, // Temporarily disabled (no-backend mode)
               { path: "/portfolio", label: "Portfolio" },
               { path: "/packages", label: "Packages" },
               { path: "/contact", label: "Contact" },
@@ -195,7 +195,7 @@ function Navbar() {
               { path: "/about", label: "About Us" },
               { path: "/portfolio", label: "Portfolio" },
               { path: "/packages", label: "Packages" },
-              { path: "/booking", label: "Booking" },
+              // { path: "/booking", label: "Booking" }, // Temporarily disabled (no-backend mode)
               { path: "/contact", label: "Contact" },
             ].map((item) => (
               <Link
