@@ -37,6 +37,9 @@ import AnimatedButton from "../../components/common/AnimatedButton"; // Custom a
 import { useRef, useEffect } from "react"; // React hooks for references and side effects
 
 function Home() {
+  const fbPageUrl =
+    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
+
   // Create refs for each section to track when they're visible in the viewport
   const servicesRef = useRef(null);
   const portfolioRef = useRef(null);
@@ -562,12 +565,16 @@ function Home() {
                 </AnimatedButton>
               </Link>
               */}
-              <button
-                className="w-full sm:w-auto bg-gray-700 text-gray-300 font-medium px-6 py-3 text-sm sm:text-base rounded-md cursor-not-allowed"
-                disabled
+              <a
+                href={fbPageUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto"
               >
-                Booking Temporarily Unavailable
-              </button>
+                <AnimatedButton className="w-full sm:w-auto bg-purple-500 hover:bg-purple-700 text-white font-medium px-6 py-3 text-sm sm:text-base rounded-md">
+                  Message Us on Facebook
+                </AnimatedButton>
+              </a>
 
               {/* Contact Us button - links to contact page */}
               <Link to="/contact" className="w-full sm:w-auto">

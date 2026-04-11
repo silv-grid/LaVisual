@@ -19,6 +19,9 @@
 // import {Link} from "react-router-dom"; // Temporarily disabled booking navigation (no-backend mode)
 
 function PackageCard({ category, title, price, description, features }) {
+  const fbPageUrl =
+    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
+
   return (
     // Main card container with styling for border, background, and hover effect
     // Uses group class for coordinating hover effects across child elements
@@ -51,12 +54,14 @@ function PackageCard({ category, title, price, description, features }) {
           </button>
         </Link>
         */}
-        <button
-          className="w-full bg-gray-700 text-gray-300 py-2 rounded-md font-medium cursor-not-allowed"
-          disabled
+        <a
+          href={fbPageUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="block w-full bg-[#374151] text-white py-2 rounded-md font-medium text-center hover:bg-purple-600 transition"
         >
-          Booking Temporarily Unavailable
-        </button>
+          Message Us on Facebook
+        </a>
       </div>
 
       {/* Divider line between top and bottom sections */}

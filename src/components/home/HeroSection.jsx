@@ -26,6 +26,9 @@ import TypeWriterEffect from "react-typewriter-effect"; // Import typewriter ani
 import React, { useEffect, useState } from "react"; // Import React and hooks
 
 function HeroSection() {
+  const fbPageUrl =
+    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
+
   const [fontSize, setFontSize] = useState("1rem"); // State to store responsive font size
 
   // Effect to handle responsive font sizing based on screen width
@@ -176,12 +179,21 @@ function HeroSection() {
                 </motion.button>
               </Link>
               */}
-              <motion.button
-                className="w-full sm:w-auto border border-gray-500 text-gray-300 px-4 sm:px-6 py-2.5 sm:py-3 rounded-md text-sm sm:text-base cursor-not-allowed"
-                disabled
+              <motion.a
+                href={fbPageUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto border border-white text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-md text-sm sm:text-base text-center hover:bg-white/10 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 400,
+                  damping: 17,
+                }}
               >
-                Booking Temporarily Unavailable
-              </motion.button>
+                Message Us on Facebook
+              </motion.a>
             </div>
           </div>
         </div>
