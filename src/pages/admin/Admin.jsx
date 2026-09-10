@@ -25,11 +25,12 @@ import YourProfileSection from '../../admin_sections/YourProfileSection'; // Imp
 import AdminService from '../../components/service/AdminService'; // Import admin authentication service
 import PendingBookings from '../../admin_sections/PendingBookings'; // Import pending bookings management component
 import DataAnalytics from '../../admin_sections/DataAnalytics'; // Import analytics dashboard component
+import ContentSection from '../../admin_sections/ContentSection'; // Import CMS content management component
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome icon component
-import { 
-  faBars, faCalendar, faCircleUser, faSignOut, faUser, 
-  faUserAlt, faUserCheck, faUserClock, faUserEdit, 
-  faUserFriends, faUserGear, faChartLine 
+import {
+  faBars, faCalendar, faCircleUser, faSignOut, faUser,
+  faUserAlt, faUserCheck, faUserClock, faUserEdit,
+  faUserFriends, faUserGear, faChartLine, faImages
 } from '@fortawesome/free-solid-svg-icons'; // Import specific icons from FontAwesome
 
 
@@ -164,6 +165,15 @@ function Admin() {
               <span>Pending Bookings</span>
             </button>
 
+            {/* Content (CMS) management button */}
+            <button
+              onClick={() => setCurrentSection('content')}
+              className={`flex items-center space-x-2 p-3 rounded-lg hover:cursor-pointer ${currentSection === 'content' ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-700'}`}
+            >
+                <FontAwesomeIcon icon={faImages} className='text-xl w-6 h-6'/>
+              <span>Content</span>
+            </button>
+
             {/* Logout button - navigates to home page and triggers logout */}
             <Link to={"/"} onClick={handleLogout}>
               <button
@@ -184,6 +194,7 @@ function Admin() {
           {currentSection === 'accounts' && <AdminAccountsSection />}
           {currentSection === 'profile' && <YourProfileSection />}
           {currentSection === 'pendingBookings' && <PendingBookings />}
+          {currentSection === 'content' && <ContentSection />}
         </main>
       </div>
     </div>
