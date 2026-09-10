@@ -24,6 +24,7 @@ import emailjs from '@emailjs/browser'; // Import emailjs for sending notificati
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome component
 import { faCheck, faTimes, faEye, faSpinner } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import PaymentProofViewer from '../components/admin/PaymentProofViewer' // Import component to display payment proof images
+import { API_URL } from "../lib/config";
 
 function PendingBookings() {
     // State for storing the list of pending bookings from the API
@@ -61,7 +62,7 @@ function PendingBookings() {
             console.log("Fetching pending bookings with token:", token ? "Token exists" : "No token");
             
             // Make GET request to the pending bookings endpoint with auth token
-            const response = await axios.get('http://localhost:8080/api/bookings/pending', {
+            const response = await axios.get(`${API_URL}/api/bookings/pending`, {
                 headers: { 
                     Authorization: `Bearer ${token}`, // Include auth token
                     'Content-Type': 'application/json' // Specify content type
@@ -108,7 +109,7 @@ function PendingBookings() {
             const token = localStorage.getItem('token'); // Get auth token
             
             // Fetch the detailed booking information from the API
-            const response = await axios.get(`http://localhost:8080/api/bookings/${bookingId}/details`, {
+            const response = await axios.get(`${API_URL}/api/bookings/${bookingId}/details`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -153,7 +154,7 @@ function PendingBookings() {
             
             // Make PUT request to approve the booking
             const response = await axios.put(
-                `http://localhost:8080/api/bookings/${selectedBooking.booking.bookingId}/approve`,
+                `${API_URL}/api/bookings/${selectedBooking.booking.bookingId}/approve`,
                 { adminNotes }, // Send admin notes in request body
                 { 
                     headers: { 
@@ -243,7 +244,7 @@ function PendingBookings() {
             // Make PUT request to reject the booking
             const response = await axios.put(
                 // Use the full URL instead of a relative path
-                `http://localhost:8080/api/bookings/${selectedBooking.booking.bookingId}/reject`,
+                `${API_URL}/api/bookings/${selectedBooking.booking.bookingId}/reject`,
                 { reason: rejectionReason }, // Send rejection reason in request body
                 { 
                     headers: { 

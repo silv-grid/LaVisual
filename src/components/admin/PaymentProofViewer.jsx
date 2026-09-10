@@ -17,6 +17,7 @@
  */
 
 import React, { useState, useEffect } from 'react'; // Import React and hooks for state and side effects
+import { API_URL } from "../../lib/config";
 
 function PaymentProofViewer({ proofUrl, altText = "Payment Proof" }) {
     // State for tracking image loading process
@@ -37,10 +38,10 @@ function PaymentProofViewer({ proofUrl, altText = "Payment Proof" }) {
                 formattedUrl = proofUrl;
             } else if (proofUrl.startsWith('/api/')) {
                 // Relative URL starting with /api/ - prepend server base URL
-                formattedUrl = `http://localhost:8080${proofUrl}`;
+                formattedUrl = `${API_URL}${proofUrl}`;
             } else {
                 // Just a filename - construct full API endpoint URL
-                formattedUrl = `http://localhost:8080/api/files/view/${proofUrl}`;
+                formattedUrl = `${API_URL}/api/files/view/${proofUrl}`;
             }
             
             console.log("Formatted payment proof URL:", formattedUrl); // Log processed URL

@@ -15,6 +15,7 @@
 
 import React, {useState} from 'react'; // Import React and useState hook
 import UpdateSchedule from './UpdateSchedule'; // Import the UpdateSchedule component for editing bookings
+import { API_URL } from "../../lib/config";
 
 function ShowScheduleDetails({ booking, onClose, onUpdate }) {
     // State to control visibility of the update modal
@@ -93,7 +94,7 @@ function ShowScheduleDetails({ booking, onClose, onUpdate }) {
             console.log('Sending update for booking:', apiData);
             
             // Send update request to backend API
-            const response = await fetch(`http://localhost:8080/api/bookings/${bookingId}`, {
+            const response = await fetch(`${API_URL}/api/bookings/${bookingId}`, {
                 method: 'PUT', // HTTP method for updates
                 headers: {
                     'Content-Type': 'application/json', // Content type header

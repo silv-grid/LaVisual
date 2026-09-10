@@ -18,10 +18,11 @@
  */
 
 import axios from "axios"; // Import axios for making HTTP requests
+import { API_URL } from "../../lib/config";
 
 class AdminService{
     // Base URL for all API requests - used to construct full endpoints
-    static BASE_URL = "http://localhost:8080"
+    static BASE_URL = `${API_URL}`
 
     /**
      * Authenticates an admin user with the backend

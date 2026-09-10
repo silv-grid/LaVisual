@@ -22,6 +22,7 @@ import QuickInfoModal from "./QuickInfoModal" // Import modal component for disp
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome for icons
 import { faAngleLeft, faAngleRight, faArrowLeft, faLeftLong, faLessThan } from "@fortawesome/free-solid-svg-icons"; // Import specific icons
 import axios from "axios"; // Import axios for making HTTP requests
+import { API_URL } from "../../lib/config";
 
 function Calendar2({onDateClick, bookings}){
 
@@ -43,7 +44,7 @@ function Calendar2({onDateClick, bookings}){
             
             // Use the month calendar endpoint to get all approved bookings for the month
             const response = await axios.get(
-                `http://localhost:8080/api/bookings/calendar/month/${year}/${month}`,
+                `${API_URL}/api/bookings/calendar/month/${year}/${month}`,
                 {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}` // Send auth token from local storage

@@ -38,6 +38,7 @@ import {
 import { Line, Bar, Pie, Doughnut } from 'react-chartjs-2'; // Import React wrappers for Chart.js
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome for icons
 import { faSpinner, faCalendarAlt, faMoneyBillWave, faChartLine, faUsers, faCamera, faVideo } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+import { API_URL } from "../lib/config";
 
 // Register ChartJS components so they can be used in any chart
 ChartJS.register(
@@ -89,7 +90,7 @@ function DataAnalytics() {
       const token = localStorage.getItem('token');
       
       // Make API request with timeRange parameter and authentication
-      const response = await axios.get(`http://localhost:8080/api/analytics/dashboard?range=${timeRange}`, {
+      const response = await axios.get(`${API_URL}/api/analytics/dashboard?range=${timeRange}`, {
         headers: { Authorization: `Bearer ${token}` } // Send token for authentication
       });
       

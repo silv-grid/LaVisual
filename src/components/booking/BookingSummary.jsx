@@ -26,6 +26,7 @@ import { useState, useRef } from 'react'; // Import React hooks for state manage
 import emailjs from '@emailjs/browser'; // Import emailjs for sending confirmation emails
 import BookingService from '../service/BookingService'; // Import service for API calls
 import qrCode from '../../assets/booking/OngleoQR.webp' // Import GCash QR code image
+import { API_URL } from "../../lib/config";
 
 function BookingSummary({ onBack, data, onComplete }) {
   // Payment method state - currently only GCash is implemented
@@ -115,7 +116,7 @@ function BookingSummary({ onBack, data, onComplete }) {
       console.log("Creating booking with data:", bookingData);
       
       // Send API request to create booking with payment proof
-      const bookingResponse = await fetch('http://localhost:8080/api/bookings/with-proof', {
+      const bookingResponse = await fetch(`${API_URL}/api/bookings/with-proof`, {
         method: 'POST',
         body: formData
         // Don't set Content-Type header - browser will set it correctly with boundary

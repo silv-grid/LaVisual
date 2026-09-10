@@ -22,6 +22,7 @@ import Calendar2 from '../components/admin/Calendar2'; // Import custom calendar
 import SetScheduleModal from '../components/admin/SetScheduleModal'; // Import modal for managing schedules
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome icon component
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'; // Import spinner icon for loading states
+import { API_URL } from "../lib/config";
 
 function CalendarSection() {
   // State for tracking the currently selected date
@@ -46,7 +47,7 @@ function CalendarSection() {
     setError(null); // Clear any previous errors
     try {
       // Make HTTP request to the bookings API endpoint
-      const response = await fetch('http://localhost:8080/api/bookings');
+      const response = await fetch(`${API_URL}/api/bookings`);
       // Check if response is successful (status 200-299)
       if (!response.ok) {
         throw new Error('Failed to fetch bookings');

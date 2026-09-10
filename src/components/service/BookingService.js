@@ -16,9 +16,10 @@
  */
 
 import axios from 'axios'; // Import axios library for making HTTP requests
+import { API_URL as BASE_API_URL } from "../../lib/config";
 
 // Base URL for all booking-related API endpoints
-const API_URL = 'http://localhost:8080/api/bookings';
+const API_URL = `${BASE_API_URL}/api/bookings`;
 
 class BookingService {
   // Original method for non-GCash bookings

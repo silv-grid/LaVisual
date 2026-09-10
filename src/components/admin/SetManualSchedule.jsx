@@ -19,6 +19,7 @@
  */
 import { useState, useEffect } from 'react';
 import { packages } from '../booking/PricingData';
+import { API_URL } from "../../lib/config";
 
 function SetManualSchedule({ onClose, selectedTimeRange, selectedDate, existingBookings }) {
     // Initialize form state with default values
@@ -217,7 +218,7 @@ function SetManualSchedule({ onClose, selectedTimeRange, selectedDate, existingB
             console.log('Sending booking data to API:', apiData);
             
             // Send POST request to the API
-            const response = await fetch('http://localhost:8080/api/bookings/manual', {
+            const response = await fetch(`${API_URL}/api/bookings/manual`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -20,6 +20,7 @@ import { useState, useEffect } from 'react'; // Import React hooks for state man
 import axios from 'axios'; // Import axios for making HTTP requests
 import 'react-calendar/dist/Calendar.css'; // Import base calendar styling
 import CalendarComp from './CalendarComp'; // Import custom calendar component
+import { API_URL } from "../../lib/config";
 
 // Helper function to format time from 24-hour format to 12-hour AM/PM format
 const formatTime = (hour) => {
@@ -62,7 +63,7 @@ function DateTimeSelection({ onNext, onBack, updateData, data }) {
     
     try {
       // Make API request to get booked slots with CONFIRMED status
-      const response = await axios.get('http://localhost:8080/api/bookings/booked-slots?status=CONFIRMED');
+      const response = await axios.get(`${API_URL}/api/bookings/booked-slots?status=CONFIRMED`);
       console.log("API Response:", response.data);
       
       // Handle case where response is HTML (typically an error page) instead of JSON

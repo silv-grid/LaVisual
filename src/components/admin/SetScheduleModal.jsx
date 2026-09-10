@@ -21,6 +21,7 @@ import SetManualSchedule from './SetManualSchedule';
 import ShowScheduleDetails from './ShowScheduleDetails';
 import { faTrash, faTrashAlt, faTrashArrowUp, faTrashCan, faTrashRestore, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { API_URL } from "../../lib/config";
 
 function SetScheduleModal({ date, onClose, onSetManual, onShowDetails, bookings }) {
     // Formats Date object to YYYY-MM-DD string format for API calls
@@ -207,7 +208,7 @@ function SetScheduleModal({ date, onClose, onSetManual, onShowDetails, bookings 
                 }
         
                 // Fetch unavailable time ranges from the API
-                const response = await fetch(`http://localhost:8080/api/schedules/unavailable/${dateStr}`, {
+                const response = await fetch(`${API_URL}/api/schedules/unavailable/${dateStr}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -326,7 +327,7 @@ function SetScheduleModal({ date, onClose, onSetManual, onShowDetails, bookings 
     //         console.log(`Attempting to delete booking with ID: ${bookingToDelete.booking.id}`);
             
     //         // Delete from database
-    //         const response = await fetch(`http://localhost:8080/api/bookings/${bookingToDelete.booking.id}`, {
+    //         const response = await fetch(`${API_URL}/api/bookings/${bookingToDelete.booking.id}`, {
     //             method: 'DELETE',
     //             headers: {
     //                 'Content-Type': 'application/json',
@@ -600,7 +601,7 @@ function SetScheduleModal({ date, onClose, onSetManual, onShowDetails, bookings 
                     for (const bookingId of pendingDeletions) {
                         console.log(`Deleting booking ID: ${bookingId}`);
                         
-                        const response = await fetch(`http://localhost:8080/api/bookings/${bookingId}`, {
+                        const response = await fetch(`${API_URL}/api/bookings/${bookingId}`, {
                             method: 'DELETE',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -972,7 +973,7 @@ function SetScheduleModal({ date, onClose, onSetManual, onShowDetails, bookings 
             console.log('Updating booking time range:', timeUpdateData);
             
             // Call the backend API
-            const response = await fetch(`http://localhost:8080/api/bookings/${bookingId}/time-range`, {
+            const response = await fetch(`${API_URL}/api/bookings/${bookingId}/time-range`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1038,7 +1039,7 @@ function SetScheduleModal({ date, onClose, onSetManual, onShowDetails, bookings 
             console.log('Saving unavailable time ranges:', formattedRanges);
     
             // This API call replaces all unavailable ranges for the date
-            const response = await fetch('http://localhost:8080/api/schedules/unavailable', {
+            const response = await fetch(`${API_URL}/api/schedules/unavailable`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
