@@ -37,8 +37,6 @@ import AnimatedButton from "../../components/common/AnimatedButton"; // Custom a
 import { useRef, useEffect } from "react"; // React hooks for references and side effects
 
 function Home() {
-  const fbPageUrl =
-    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
 
   // Create refs for each section to track when they're visible in the viewport
   const servicesRef = useRef(null);
@@ -557,24 +555,12 @@ function Home() {
               variants={ctaButtonVariants} // Apply button animation variants
               className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6"
             >
-              {/* Book a Session button - links to booking page (temporarily disabled) */}
-              {/*
+              {/* Book a Session button - links to booking page */}
               <Link to="/booking" className="w-full sm:w-auto">
                 <AnimatedButton className="w-full sm:w-auto bg-purple-500 hover:bg-purple-700 text-white font-medium px-6 py-3 text-sm sm:text-base rounded-md">
                   Book a Session
                 </AnimatedButton>
               </Link>
-              */}
-              <a
-                href={fbPageUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto"
-              >
-                <AnimatedButton className="w-full sm:w-auto bg-purple-500 hover:bg-purple-700 text-white font-medium px-6 py-3 text-sm sm:text-base rounded-md">
-                  Message Us on Facebook
-                </AnimatedButton>
-              </a>
 
               {/* Contact Us button - links to contact page */}
               <Link to="/contact" className="w-full sm:w-auto">

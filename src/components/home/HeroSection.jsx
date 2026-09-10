@@ -26,8 +26,6 @@ import TypeWriterEffect from "react-typewriter-effect"; // Import typewriter ani
 import React, { useEffect, useState } from "react"; // Import React and hooks
 
 function HeroSection() {
-  const fbPageUrl =
-    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
 
   const [fontSize, setFontSize] = useState("1rem"); // State to store responsive font size
 
@@ -161,39 +159,22 @@ function HeroSection() {
                 </AnimatedButton>
               </Link>
 
-              {/* Book a Session button with custom animation (temporarily disabled) */}
-              {/*
+              {/* Book a Session button with custom animation */}
               <Link to="/booking" className="w-full sm:w-auto">
-                <motion.button 
+                <motion.button
                   className="relative group flex justify-center items-center w-full sm:w-auto border border-white text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-md hover:bg-white/10 transition-all duration-300 text-sm sm:text-base hover:cursor-pointer overflow-hidden"
                   whileHover={{ scale: 1.05 }} // Grow slightly on hover
                   whileTap={{ scale: 0.95 }} // Shrink slightly when clicked
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 400, 
-                    damping: 17 
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 17
                   }}
                 >
                   <div className="h-[100px] top-[-30px] w-10 bg-gradient-to-r from-white/10 via-white/50 to-white/10 absolute -left-16 -rotate-28 blur-sm group-hover:left-[150%] duration-700 group-hover:delay-100" />
                   Book a Session
                 </motion.button>
               </Link>
-              */}
-              <motion.a
-                href={fbPageUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full sm:w-auto border border-white text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-md text-sm sm:text-base text-center hover:bg-white/10 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 400,
-                  damping: 17,
-                }}
-              >
-                Message Us on Facebook
-              </motion.a>
             </div>
           </div>
         </div>

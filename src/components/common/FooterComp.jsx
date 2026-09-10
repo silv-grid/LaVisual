@@ -20,8 +20,6 @@
 import { Link } from "react-router-dom"; // Import Link for client-side navigation without page reload
 
 function FooterComp() {
-  const fbPageUrl =
-    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
 
   return (
     // Main footer container with black background, full width, and vertical padding
@@ -83,16 +81,13 @@ function FooterComp() {
                   Packages
                 </Link>
               </li>
-              {/* <li><Link to="/booking" className="text-gray-400 hover:text-purple-500 text-sm transition-colors duration-200">Book a Session</Link></li> */}
               <li>
-                <a
-                  href={fbPageUrl}
-                  target="_blank"
-                  rel="noreferrer"
+                <Link
+                  to="/booking"
                   className="text-gray-400 hover:text-purple-500 text-sm transition-colors duration-200"
                 >
-                  Message Us on Facebook
-                </a>
+                  Book a Session
+                </Link>
               </li>
               <li>
                 <Link

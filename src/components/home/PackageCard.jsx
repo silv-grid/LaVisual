@@ -16,12 +16,9 @@
  * where it helps potential customers explore and compare different service offerings.
  */
 
-// import {Link} from "react-router-dom"; // Temporarily disabled booking navigation (no-backend mode)
+import { Link } from "react-router-dom"; // Import Link for navigation to the booking page
 
 function PackageCard({ category, title, price, description, features }) {
-  const fbPageUrl =
-    "https://www.facebook.com/share/1Fj1cgEdN6/?mibextid=wwXIfr";
-
   return (
     // Main card container with styling for border, background, and hover effect
     // Uses group class for coordinating hover effects across child elements
@@ -46,22 +43,12 @@ function PackageCard({ category, title, price, description, features }) {
         {/* Package description text */}
         <p className="text-sm text-gray-300 mb-5">{description}</p>
 
-        {/* Booking button with link to booking page (temporarily disabled) */}
-        {/*
+        {/* Booking button with link to booking page */}
         <Link to={"/booking"}>
           <button className="w-full bg-[#374151] transition text-white py-2 rounded-md font-medium hover:cursor-pointer group-hover:bg-purple-600">
             Book Now
           </button>
         </Link>
-        */}
-        <a
-          href={fbPageUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="block w-full bg-[#374151] text-white py-2 rounded-md font-medium text-center hover:bg-purple-600 transition"
-        >
-          Message Us on Facebook
-        </a>
       </div>
 
       {/* Divider line between top and bottom sections */}
