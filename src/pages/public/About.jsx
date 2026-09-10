@@ -18,7 +18,8 @@
  */
 
 // Import main dependencies for frontend
-import React from 'react'; // Core React library
+import React, { useState, useEffect } from 'react'; // Core React library
+import CmsService from '../../components/service/CmsService'; // CMS API for admin-managed "Our Story" copy
 import TypeWriterEffect from 'react-typewriter-effect'; // For typing animation effect
 import { Link } from 'react-router-dom'; // For navigation links to other pages
 import { AnimatePresence, motion } from 'framer-motion'; // For animations and transitions
@@ -40,7 +41,32 @@ import nald from '../../assets/about/nald.webp'; // Event Photographer
 import lei from '../../assets/about/lei.webp'; // Image for Our Story section
 
 
+// Fallback "Our Story" copy (used until the CMS responds, or if it's unreachable) - unchanged from the original hardcoded content.
+const FALLBACK_STORY = [
+  "Founded in 2023, LaVisual began as a freelance creatives with a big vision. To create stunning visual content that tells powerful stories and preserves precious memories.",
+  "Over the years, we've grown into a full-service photography and videography company, working with clients across the country. Our team has expanded to include specialists in various photography and videography niches, allowing us to offer comprehensive services for any occasion.",
+  "What sets us apart is our commitment to personalized service and artistic excellence. We believe that every client deserves a unique approach tailored to their specific vision and needs.",
+];
+
 function About() {
+  // "Our Story" copy, editable via the admin Content CMS (site_content key "about.story").
+  const [storyParagraphs, setStoryParagraphs] = useState(FALLBACK_STORY);
+
+  useEffect(() => {
+    let cancelled = false;
+    CmsService.getSiteContent()
+      .then((blocks) => {
+        const story = blocks.find((b) => b.contentKey === 'about.story');
+        if (!cancelled && story?.content) {
+          const paragraphs = story.content.split('\n\n').map((p) => p.trim()).filter(Boolean);
+          if (paragraphs.length > 0) setStoryParagraphs(paragraphs);
+        }
+      })
+      .catch(() => {
+        // Keep FALLBACK_STORY - expected in local dev without a backend running.
+      });
+    return () => { cancelled = true; };
+  }, []);
 
   // Variables for custom animations variants for framer motion for elements on how they appear on the page
   
@@ -180,20 +206,11 @@ function About() {
                   variants={fadeInLeft} // Enter from left animation
                 >
                   <h2 className="text-2xl font-bold text-white text-center md:text-left mb-6">Our Story</h2>
-                  <p className="mb-4">
-                    Founded in 2023, LaVisual began as a freelance creatives with a big vision.
-                    To create stunning visual content that tells powerful stories and preserves precious memories.
-                  </p>
-                  <p className="mb-4">
-                    Over the years, we've grown into a full-service photography and videography
-                    company, working with clients across the country. Our team has expanded to
-                    include specialists in various photography and videography niches, allowing
-                    us to offer comprehensive services for any occasion.
-                  </p>
-                  <p>
-                    What sets us apart is our commitment to personalized service and artistic excellence.
-                    We believe that every client deserves a unique approach tailored to their specific vision and needs.
-                  </p>
+                  {storyParagraphs.map((paragraph, i) => (
+                    <p key={i} className={i < storyParagraphs.length - 1 ? "mb-4" : ""}>
+                      {paragraph}
+                    </p>
+                  ))}
                 </motion.div>
                 {/* Image container with right-fade animation */}
                 <motion.div 

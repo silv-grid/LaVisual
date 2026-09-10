@@ -19,11 +19,30 @@
 
 import React, { useState, useRef, useEffect } from "react"; // Core React imports for component, state, and lifecycle hooks
 import Navbar from "../../components/common/Navbar"; // Site navigation header
-import FooterComp from "../../components/common/FooterComp"; // Site footer 
+import FooterComp from "../../components/common/FooterComp"; // Site footer
 import PackageCard from "../../components/home/PackageCard"; // Card component for displaying package details
 import { Link } from "react-router-dom"; // For navigation to other pages
 import { motion, AnimatePresence } from "framer-motion"; // Animation library components
 import TypeWriterEffect from 'react-typewriter-effect'; // Component for typing animation effect
+import CmsService from "../../components/service/CmsService"; // CMS API for admin-managed package content
+
+// Formats a plain number/decimal price (as returned by the CMS) into the
+// comma-separated string PackageCard expects, e.g. 3000 -> "3,000".
+function formatPrice(price) {
+  return Number(price).toLocaleString("en-US", { maximumFractionDigits: 0 });
+}
+
+// Maps a CMS package row (name/price/features as returned by the API) onto
+// the shape PackageCard already renders (title/price string/features array).
+function fromCms(p) {
+  return {
+    category: p.category,
+    title: p.name,
+    price: formatPrice(p.price),
+    description: p.description,
+    features: p.features || [],
+  };
+}
 
 function Package() {
   // State to track which category is currently selected (defaults to Photography)
@@ -76,8 +95,29 @@ function Package() {
     return () => window.removeEventListener('resize', handleResize);
   }, [category]);
 
-  // Array of package data objects containing all service packages
-  const packages = [
+  // CMS-fetched packages, once loaded; null while loading/before the first fetch resolves
+  const [cmsPackages, setCmsPackages] = useState(null);
+
+  // Load packages from the CMS on mount. Falls back to the fallbackPackages
+  // array below (unchanged from the original hardcoded content) if the
+  // backend is unreachable, e.g. local frontend dev without the backend running.
+  useEffect(() => {
+    let cancelled = false;
+    CmsService.getPackages(true)
+      .then((data) => {
+        if (!cancelled && Array.isArray(data) && data.length > 0) {
+          setCmsPackages(data.map(fromCms));
+        }
+      })
+      .catch(() => {
+        // Silently keep fallbackPackages - this is expected in local dev
+        // without a backend running, not a user-facing error.
+      });
+    return () => { cancelled = true; };
+  }, []);
+
+  // Fallback package data (used until the CMS responds, or if it's unreachable)
+  const fallbackPackages = [
     // Photography section - packages for photo services
     {
       category: "Photography",
@@ -238,6 +278,10 @@ function Package() {
       ],
     },
   ];
+
+  // Prefer CMS content once it's loaded; otherwise render the fallback immediately
+  // (no loading flicker - the fallback is real, publishable content on its own).
+  const packages = cmsPackages || fallbackPackages;
 
   // Filter packages to only show those in the currently selected category
   const filteredPackages = packages.filter((pkg) => pkg.category === category);
