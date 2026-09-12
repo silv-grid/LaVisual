@@ -179,7 +179,7 @@ function ChatWidget() {
             {/* Header */}
             <div className="relative flex items-center gap-3 px-4 py-3.5 bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600">
               <BrandMark
-                className="w-9 h-9 shrink-0 rounded-xl bg-white/15 ring-1 ring-white/25 backdrop-blur-sm text-sm"
+                className="w-9 h-9 shrink-0 rounded-xl bg-white ring-1 ring-white/40 shadow-sm text-sm text-purple-700"
                 imgClassName="w-6 h-6 object-contain"
               />
               <div className="min-w-0 flex-1">
@@ -339,7 +339,7 @@ function ChatWidget() {
               transition={{ duration: 0.18 }}
               className="flex items-center justify-center"
             >
-              <BrandMark className="w-8 h-8 text-sm" imgClassName="w-8 h-8 object-contain drop-shadow" />
+              <BrandMark className="w-9 h-9 rounded-full bg-white shadow-md text-sm text-purple-700" imgClassName="w-6 h-6 object-contain" />
             </motion.span>
           )}
         </AnimatePresence>

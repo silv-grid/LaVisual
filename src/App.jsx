@@ -25,6 +25,8 @@ import Admin from "./pages/admin/Admin";
 import ScrollToTop from "./components/common/ScrollToTop";
 import ProtectedAdminRoute from "./components/common/ProtectedRoute";
 import ChatWidget from "./components/common/ChatWidget";
+import { ToastProvider } from "./components/common/Toast";
+import { ConfirmProvider } from "./components/common/ConfirmDialog";
 
 // Shows the floating chat widget on public pages only - it's an FAQ/info
 // helper for visitors, not something admins need while managing the site.
@@ -37,7 +39,8 @@ function ChatWidgetGate() {
 // Main App
 function App() {
   return (
-    <>
+    <ToastProvider>
+      <ConfirmProvider>
       <BrowserRouter>
         {" "}
         {/* Imported */}
@@ -70,7 +73,8 @@ function App() {
         </Routes>
         <ChatWidgetGate />
       </BrowserRouter>
-    </>
+      </ConfirmProvider>
+    </ToastProvider>
   );
 }
 

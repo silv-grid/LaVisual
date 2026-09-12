@@ -81,6 +81,16 @@ class CmsService {
     return res.data;
   }
 
+  // --- Chatbot knowledge ---
+  /**
+   * Forces an immediate rebuild of the chatbot's knowledge index. CMS edits
+   * reindex on their own after a short delay; this is the manual "sync now".
+   */
+  static async reindex() {
+    const res = await axios.post(`${API_URL}/reindex`, {}, { headers: authHeaders() });
+    return res.data;
+  }
+
   // --- File upload (reused for package/portfolio images) ---
   static async uploadFile(file) {
     const formData = new FormData();

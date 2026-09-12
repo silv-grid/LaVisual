@@ -25,8 +25,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import Font
 import { faCheck, faTimes, faEye, faSpinner } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
 import PaymentProofViewer from '../components/admin/PaymentProofViewer' // Import component to display payment proof images
 import { API_URL } from "../lib/config";
+import { useToast } from '../components/common/Toast';
 
 function PendingBookings() {
+    const toast = useToast();
     // State for storing the list of pending bookings from the API
     const [pendingBookings, setPendingBookings] = useState([]);
     // State for tracking loading status during API calls
@@ -128,11 +130,11 @@ function PendingBookings() {
                 setShowDetailsModal(true);
             } else {
                 // Show error message if API indicates failure
-                alert('Failed to load booking details: ' + response.data.message);
+                toast.error('Could not load booking details', response.data.message);
             }
         } catch (err) {
             // Handle any errors during the API call
-            alert('Error loading booking details: ' + (err.response?.data?.message || err.message));
+            toast.error('Could not load booking details', err.response?.data?.message || err.message);
             console.error('Error fetching booking details:', err);
         } finally {
             // Reset loading state
@@ -204,23 +206,23 @@ function PendingBookings() {
                 }
                 
                 // Show success message, close modal, and reset state
-                alert('Booking approved successfully');
+                toast.success('Booking approved', 'The time slot is now confirmed.');
                 setShowDetailsModal(false);
                 // Reset the state
                 setAdminNotes('');
                 fetchPendingBookings(); // Refresh the list of pending bookings
             } else {
                 // Show error if API indicates failure
-                alert('Failed to approve booking: ' + response.data.message);
+                toast.error('Could not approve booking', response.data.message);
             }
         } catch (err) {
             // Handle any errors during the API call
             console.error('Error details:', err);
             if (err.response) {
                 console.error('Server response:', err.response.data);
-                alert(`Error approving booking: ${err.response.status} - ${err.response.data.message || 'Unknown error'}`);
+                toast.error('Could not approve booking', `${err.response.status} - ${err.response.data.message || 'Unknown error'}`);
             } else {
-                alert('Error approving booking: ' + err.message);
+                toast.error('Could not approve booking', err.message);
                 console.error('Error approving booking:', err);
             }
         } finally {
@@ -233,7 +235,7 @@ function PendingBookings() {
     const handleReject = async () => {
         // Validate that we have a booking and rejection reason
         if (!selectedBooking || !rejectionReason.trim()) {
-            alert('Please provide a reason for rejection');
+            toast.error('A reason is required', 'Let the customer know why the booking was rejected.');
             return;
         }
         
@@ -283,17 +285,17 @@ function PendingBookings() {
                 }
                 
                 // Show success message, close modal, and reset state
-                alert('Booking rejected successfully');
+                toast.success('Booking rejected', 'The slot has been released.');
                 setShowDetailsModal(false);
                 setRejectionReason(''); // Reset the rejection reason
                 fetchPendingBookings(); // Refresh the list of pending bookings
             } else {
                 // Show error if API indicates failure
-                alert('Failed to reject booking: ' + response.data.message);
+                toast.error('Could not reject booking', response.data.message);
             }
         } catch (err) {
             // Handle any errors during the API call
-            alert('Error rejecting booking: ' + (err.response?.data?.message || err.message));
+            toast.error('Could not reject booking', err.response?.data?.message || err.message);
             console.error('Error rejecting booking:', err);
         } finally {
             // Reset loading state

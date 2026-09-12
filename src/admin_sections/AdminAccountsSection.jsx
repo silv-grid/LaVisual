@@ -30,8 +30,12 @@ import EditAdminModal from '../components/admin/EditAdminModal'; // Import modal
 import AddAdminModal from '../components/admin/AddAdminModal'; // Import modal for adding new admin accounts
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome component for icons
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'; // Import spinner icon for loading states
+import { useToast } from '../components/common/Toast';
+import { useConfirm } from '../components/common/ConfirmDialog';
 
 function AdminAccountsSection() {
+  const toast = useToast();
+  const confirm = useConfirm();
   // State for storing the list of admin accounts
   const [admins, setAdmins] = useState([]);
   // State for tracking which admin is currently selected for operations
@@ -90,7 +94,7 @@ function AdminAccountsSection() {
   const handleDelete = async (adminId) => {
     try {
       // Show confirmation dialog before deleting
-      if (window.confirm('Are you sure you want to delete this admin account?')) {
+      if (await confirm({ title: 'Delete this admin account?', body: 'They will immediately lose access to the admin panel. This cannot be undone.', destructive: true })) {
         const token = localStorage.getItem('token'); // Get authentication token
         await AdminService.deleteUser(adminId, token); // Call API to delete user
         fetchUsers(); // Refresh the user list after deletion
@@ -112,7 +116,7 @@ function AdminAccountsSection() {
     } catch (error) {
       console.error('Error adding admin:', error); // Log error to console
       // Show alert with error details from the API response if available
-      alert('Failed to add admin: ' + (error.response?.data?.message || error.message));
+      toast.error('Could not add admin', error.response?.data?.message || error.message);
       setIsLoading(false); // End loading state on error
     }
   };
@@ -128,7 +132,7 @@ function AdminAccountsSection() {
     } catch (error) {
       console.error('Error updating admin:', error); // Log error to console
       // Show alert with error details from the API response if available
-      alert('Failed to update admin: ' + (error.response?.data?.message || error.message));
+      toast.error('Could not update admin', error.response?.data?.message || error.message);
       setIsLoading(false); // End loading state on error
     }
   };

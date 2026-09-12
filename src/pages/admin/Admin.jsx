@@ -18,7 +18,7 @@
  */
 
 import { useState, useEffect } from 'react'; // Import React hooks for state management and side effects
-import { Link, Routes, Route } from 'react-router-dom'; // Import routing components from React Router
+import { Link, Routes, Route, useNavigate } from 'react-router-dom'; // Import routing components from React Router
 import CalendarSection from '../../admin_sections/CalendarSection'; // Import calendar management component
 import AdminAccountsSection from '../../admin_sections/AdminAccountsSection'; // Import admin user management component
 import YourProfileSection from '../../admin_sections/YourProfileSection'; // Import profile management component
@@ -26,6 +26,7 @@ import AdminService from '../../components/service/AdminService'; // Import admi
 import PendingBookings from '../../admin_sections/PendingBookings'; // Import pending bookings management component
 import DataAnalytics from '../../admin_sections/DataAnalytics'; // Import analytics dashboard component
 import ContentSection from '../../admin_sections/ContentSection'; // Import CMS content management component
+import { useConfirm } from '../../components/common/ConfirmDialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome icon component
 import {
   faBars, faCalendar, faCircleUser, faSignOut, faUser,
@@ -35,6 +36,8 @@ import {
 
 
 function Admin() {
+  const confirm = useConfirm();
+  const navigate = useNavigate();
   // State to control sidebar navigation visibility (default is open)
   const [isNavOpen, setIsNavOpen] = useState(true);
   // State to track which dashboard section is currently active (default is analytics)
@@ -73,12 +76,18 @@ function Admin() {
   }, []); // Empty dependency array means this effect runs only once after initial render
   
   // Handler function for logging out
-  const handleLogout = () => {
-    // Show confirmation dialog before logging out
-    const confirmDelete = window.confirm('Are you sure you want to logout this user?');
-    if (confirmDelete) {
-        // Call logout method from AdminService if user confirms
-        AdminService.logout();
+  const handleLogout = async (e) => {
+    // Confirm before ending the session; the link navigates away either way,
+    // so cancel must prevent the default navigation too.
+    e?.preventDefault();
+    const ok = await confirm({
+      title: 'Log out?',
+      body: "You'll need to sign in again to manage bookings and content.",
+      confirmLabel: 'Log out',
+    });
+    if (ok) {
+      AdminService.logout();
+      navigate('/');
     }
   };
 
@@ -167,7 +176,7 @@ function Admin() {
             </div>
 
             {/* Logout button - navigates to home page and triggers logout */}
-            <Link to={"/"} onClick={handleLogout}>
+            <Link to="/" onClick={handleLogout}>
               <button className="group flex w-full items-center space-x-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-all duration-150 hover:cursor-pointer">
                 <FontAwesomeIcon icon={faSignOut} className='text-base w-5 text-gray-500 group-hover:text-red-400 transition-colors duration-150'/>
                 <span>Log out</span>

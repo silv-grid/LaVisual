@@ -24,8 +24,10 @@ import AdminService from '../components/service/AdminService'; // Import the ser
 import { Link, useParams, useNavigate } from 'react-router-dom'; // Import routing utilities
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesome component
 import { faSpinner, faExclamationTriangle, faUserCircle } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+import { useToast } from '../components/common/Toast';
 
 function YourProfileSection() {
+  const toast = useToast();
   // State to track whether the user is currently editing their profile
   const [isEditing, setIsEditing] = useState(false);
   // State to track loading states during API calls
@@ -170,7 +172,7 @@ function YourProfileSection() {
       setIsEditing(false); // Exit editing mode
       
       // Show success message
-      alert('Profile updated successfully');
+      toast.success('Profile updated');
       
       // Refresh data from server to ensure consistency
       fetchProfileInfo();
