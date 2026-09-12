@@ -101,7 +101,7 @@ function ContentSection() {
       </div>
 
       {/* Tabs with a sliding indicator, so the active surface is unambiguous */}
-      <div className="relative flex gap-1 mt-5 mb-6 border-b border-white/10 overflow-x-auto">
+      <div className="relative flex gap-1 mt-5 mb-6 border-b border-white/10 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {TABS.map((t) => {
           const active = tab === t.key;
           return (
@@ -117,7 +117,7 @@ function ContentSection() {
               {active && (
                 <motion.span
                   layoutId="cms-tab-indicator"
-                  className="absolute inset-x-0 -bottom-px h-0.5 bg-purple-500"
+                  className="absolute inset-x-0 bottom-0 h-0.5 bg-purple-500"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
